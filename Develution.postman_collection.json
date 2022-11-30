@@ -1,0 +1,1131 @@
+{
+	"info": {
+		"_postman_id": "54288e72-2ee8-4ab3-8482-5ed48c005c01",
+		"name": "Develution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21484712"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Store Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_translation[en]",
+									"value": "New Translation 6",
+									"type": "text"
+								},
+								{
+									"key": "is_available",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name_translation[ar]",
+									"value": "ترجمة 6",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Peace & Freedoom/Freedom (1).jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ars",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/v1/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/category/allAvailable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"allAvailable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update category | check url",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var req=pm.request.body;\r",
+									"console.log(req.formdata)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{applicationJson}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "is_available",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name_translation[en]",
+									"value": "English 25",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image_url",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Cars2/015.JPG"
+								},
+								{
+									"key": "name_translation[ar]",
+									"value": "شسيشسيشسي 25",
+									"type": "text"
+								},
+								{
+									"key": "name_translation[fr]",
+									"value": "C etoi",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/category/1?_method=PUT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"1"
+							],
+							"query": [
+								{
+									"key": "_method",
+									"value": "PUT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Categroy and its relations",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/category/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Category for Clients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{applicationJson}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/v1/category/client/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"client",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All available Categories for clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/category/allAvailable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"allAvailable"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Email verification",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json Content-Type: application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/v1/email/verify/2/138a2a8bb064172e837e48a92f69dc17ea22ead9?expires=1669822818&signature=74c1d08ab1ef80eb0ecbf26e934e4a548930bf1f92b94d90b874501781371f1f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"email",
+								"verify",
+								"2",
+								"138a2a8bb064172e837e48a92f69dc17ea22ead9"
+							],
+							"query": [
+								{
+									"key": "expires",
+									"value": "1669822818"
+								},
+								{
+									"key": "signature",
+									"value": "74c1d08ab1ef80eb0ecbf26e934e4a548930bf1f92b94d90b874501781371f1f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json Content-Type: application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"abc3\",\r\n    \"email\": \"test@test.test3\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\",\r\n    \"role_id\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{applicationJson}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test@test.test\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|tmWlueB7DzhzbLWrn7ChZMMsbGfRSwMQpvT5LOAr",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{applicationJson}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"role_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/update/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"update",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{applicationJson}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/v1/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{applicationJson}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/v1/delete/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users only for admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{applicationJson}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/v1/all-users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"all-users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "Store Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_translation[en]",
+									"value": "hiiiii",
+									"type": "text"
+								},
+								{
+									"key": "name_translation[ar]",
+									"value": "هاييييي",
+									"type": "text"
+								},
+								{
+									"key": "description_translation[en]",
+									"value": "Descritpion english",
+									"type": "text"
+								},
+								{
+									"key": "description_translation[ar]",
+									"value": "تفاصيل",
+									"type": "text"
+								},
+								{
+									"key": "is_available",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Wallpaper/(70).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Wallpaper/(71).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Wallpaper/(72).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Wallpaper/(73).jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_translation[en]",
+									"value": "update translation 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name_translation[ar]",
+									"value": "ترجمة معدلة 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description_translation[en]",
+									"value": "Update Desc 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description_translation[ar]",
+									"value": "ترجمة تفاصيل معدلة 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "123",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "is_available",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Cars2/BMW_1-serie-tii_845_1920x1200.jpg",
+									"disabled": true
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Cars2/BMW_1-serie-tii_851_1920x1200.jpg"
+								},
+								{
+									"key": "description_translation[fr]",
+									"value": "Ce toir 2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "deleted_images[]",
+									"value": "574373352_item_1669673189.jpg",
+									"type": "text"
+								},
+								{
+									"key": "deleted_images[]",
+									"value": "1409282148_item_1669643854.jpg",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name_translation[fr]",
+									"value": "saluut",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/item/4?_method=PUT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item",
+								"4"
+							],
+							"query": [
+								{
+									"key": "_method",
+									"value": "PUT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/item/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Truncate All Tables, with images",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/deleteAllItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"deleteAllItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Items for Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All items for clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/items/allAvailable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"items",
+								"allAvailable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Item for Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/item/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Item for Clients",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/v1/item/client/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item",
+								"client",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Store Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_translation[en]",
+									"value": "product 1",
+									"type": "text"
+								},
+								{
+									"key": "name_translation[ar]",
+									"value": "منتج 1",
+									"type": "text"
+								},
+								{
+									"key": "description_translation[en]",
+									"value": "Prod Desc 1",
+									"type": "text"
+								},
+								{
+									"key": "description_translation[ar]",
+									"value": "تفصيل منتج 1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Cars/015.JPG"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/Cars/1997_DODGE_AVENGER.jpg"
+								},
+								{
+									"key": "price",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "is_available",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "item_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_translation[en]",
+									"value": "Hawai",
+									"type": "text"
+								},
+								{
+									"key": "name_translation[fr]",
+									"value": "porqoiue",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/F:/New f/Images/Pictures (files)/pics  old/monawa3at/افلام/M.mera (149).bmp"
+								},
+								{
+									"key": "deleted_images[]",
+									"value": "288807825_item_1669670391.bmp",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/v1/product/9?_method=PUT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"9"
+							],
+							"query": [
+								{
+									"key": "_method",
+									"value": "PUT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product and Images",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/product/19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Products for Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Products for Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/products/allAvailable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"allAvailable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Product for Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/product/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Product for Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/v1/product/client/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"client",
+								"21"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "5|4meIF3UoJoeAVkDBKCJ7cQtSkm7K5g51TYNB7P7c",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({key: 'Accept', ",
+					"value: 'application/json Content-Type: application/json' ",
+					"});",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string"
+		}
+	]
+}

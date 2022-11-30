@@ -1,0 +1,113 @@
+. requirements:
+    - php v7.4
+        or
+      php v8.0 or higher (recommended)
+
+    - composer (php dependency/package manager)
+        . required
+    
+    - mysql/phpmyadmin
+        . required
+
+
+. Database Tables:
+    -roles: ""[id, name]""
+        |
+        - users:    ""[id, name, role_id, email, username, password, email_verified, mobile, timestamps]""
+            |
+            - categories:   ""[id, user_id, image_url, is_available, timestamps]""
+                |
+                - Category_translations:    ""[name, slug(auto-generated)]""
+                |
+                |    
+                - items:    ""[price, is_available, Category_id]""
+                    |
+                    - item_translations:    ""[name, description, slug(auto-generated)]""
+                    |
+                    - Iitem_images:  ""[image_url]""
+                    |
+                    |
+                    - porducts:     ""[price, is_available, item_id]""
+                        |           
+                        - product_translations:     ""[name, description, slug(auto-generated)]""
+                        |
+                        - product_images:   ""[image_url]""
+                        |
+                        |
+                    - visits:   ""[visitable, data]""
+
+. Setup:
+    1. In command line: (in the same directory)
+        - composer install
+            - this to install laravel and all the packages
+
+    2. edit .env file: (required)
+        - search for:
+            DB_CONNECTION=mysql
+            DB_HOST=mysql
+            DB_PORT=3306
+            DB_DATABASE=GIVE_A_DATABASE_NAME
+            DB_USERNAME=YOUR_MYSQL_USERNAME
+            DB_PASSWORD=YOUR_MYSQL_PASSWORD
+            
+    3. (required)
+        - since Storing, Updating and Deleting from db needs authentication
+          and user must verify his email
+          recommended: Mailtrap (for email testing) - visit: https://mailtrap.io and register
+          
+          - Note: later will be changed with an official smtp email
+        
+        - then: search in .env file and edit the following:
+
+            MAIL_MAILER=smtp
+            MAIL_HOST=smtp.mailtrap.io
+            MAIL_PORT=2525
+            MAIL_USERNAME=YOUR_USERNAME_ON_MAILTRAP(ID)
+            MAIL_PASSWORD=YOUR_PASSWORD_ON_MAILTRAP
+            MAIL_ENCRYPTION=tls
+            MAIL_FROM_ADDRESS="hello@example.com"
+            MAIL_FROM_NAME="${APP_NAME}" 
+
+    4. in command line : (in same directory)
+        -php artisan migrate --seed
+            - to migrate all tables in to the database
+            - --seed: to create to generate roles(admin, user) in db and create first user with:
+                 = email: test@test.test
+                 = password: password 
+
+    5. in command line:
+        - php artisan serve
+            - this will run the php/laravel server
+
+    6. after all these steps, now we can test the endpoints/routes
+        - using postman (recommended)
+
+
+. Testing the endpoints:
+    - all routes are located in /routes/api_v1.php
+    - Authentication uses sanctum token which needs to be inserted as a header as: 
+        authentication: 'Bearer ApiToken given after register/login'
+    - after authenticating/registering or logining in
+        make sure that the email is verified
+
+    - postman: import the file
+        - postman is structured as follows:
+            - each table in databse has its folder
+
+
+. How to use with postman:
+    1.import postman json file
+    2. in Auth section:
+        choose login: the route should look like: http://localhost/api/v1/login
+            then send login fields as body FormData or  boy row json
+                email: test@test.test
+                password: password
+    3. copy the token that is returned as response
+    4. paste the token in the top folder named (develution)
+        under: Autherization
+        select type: Bearer Token   -> paste the token here
+    5. now the user is authenticated as admin, it is auto generated as admin
+    6. note that any new registered user its role is user, to change it a logged in admin only can change it
+    7. be sure to verify the email after new registered user
+    8. now all the endpoints can be tested one by one 
+            

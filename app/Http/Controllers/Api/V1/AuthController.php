@@ -83,19 +83,26 @@ class AuthController extends Controller
             $validatedUpdatedUser['password'] = bcrypt($validatedUpdatedUser['password']);
         }
 
+        if (isset($validatedUpdatedUser['role_id'])) {
+            if (!Gate::allows('viewAny', $user)) {
+                abort(403, 'Not allowed');
+            }
+        }
 
         // if request has email to change, reset verified at to null, then resend email, and update inside this condition
-        if ($validatedUpdatedUser['email'] !== $user->email) {
+        if (isset($validatedUpdatedUser['email'])) {
+            if ($validatedUpdatedUser['email'] !== $user->email) {
 
-            $user->email_verified_at = null;
+                $user->email_verified_at = null;
 
-            //update here then send email to user
-            $user->update($validatedUpdatedUser);
-            $user->sendEmailVerificationNotification();
+                //update here then send email to user
+                $user->update($validatedUpdatedUser);
+                $user->sendEmailVerificationNotification();
 
-            return response([
-                'success' => true
-            ]);
+                return response([
+                    'success' => true
+                ]);
+            }
         }
 
         //if no email to update,, directly update without sending email
